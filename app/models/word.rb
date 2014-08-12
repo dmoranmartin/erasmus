@@ -1,3 +1,4 @@
 class Word < ActiveRecord::Base
-validates :name, :origin, :definition, :photo, :video, :example, presence: true
+validates :name, :locale, presence: true
+has_many :definitions
 end

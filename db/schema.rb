@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812075234) do
+ActiveRecord::Schema.define(version: 20140812101841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "definitions", force: true do |t|
+    t.integer  "word_id"
+    t.text     "text"
+    t.string   "video"
+    t.string   "origin"
+    t.integer  "category"
+    t.text     "example"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "definitions", ["word_id"], name: "index_definitions_on_word_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -34,13 +47,7 @@ ActiveRecord::Schema.define(version: 20140812075234) do
 
   create_table "words", force: true do |t|
     t.string   "name"
-    t.string   "origin"
-    t.text     "definition"
-    t.string   "photo"
-    t.string   "video"
-    t.text     "example"
     t.string   "language"
-    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
