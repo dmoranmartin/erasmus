@@ -7,6 +7,8 @@ class CreateWords < ActiveRecord::Migration
       t.string :photo
       t.string :video
       t.text :example
+      t.string :language
+      t.string :category
       t.timestamps
     end
   end
