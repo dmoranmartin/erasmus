@@ -4,7 +4,13 @@ class WordsController < ApplicationController
   
 	def index
 		@words = Word.all
+		@words_name = []
+		@words.each do |word|
+			@words_name.push(word.name)
+		end
+		
 		@alphabet = ("a".."z").to_a
+
 
 		add_breadcrumb "words", words_path
 	end

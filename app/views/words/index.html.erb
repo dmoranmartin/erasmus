@@ -2,7 +2,8 @@
 <h1> WORDS</h1>
 
 <% @alphabet.each do |letter|  %>
-	<a href="#" onclick="findLetter('<%=letter%>')"><%= letter %></a>
+	<button class = 'letter'> <%= letter %></button>
+
 <% end %>
 
 
@@ -16,7 +17,25 @@
 
 <% end %>
 </ul>
+<div id = 'alph'>  </div>
 
 <script type="text/javascript">
-	var
+	var findLetter = function(letter)  {
+		var breakfunction = function(word) {
+			lettersprearray = word.split;
+			lettersarray = lettersprearray.to_a;
+			var firstletter = lettersarray[0];
+			if (firstletter == letter){
+				$("#alph").html(word);
+			}
+		}
+
+	};
+
+	$(".letter").on('click', function(event){
+
+			findLetter(event.currentTarget.innerText);
+});
 </script>
+
+
