@@ -1,11 +1,15 @@
 class DefinitionsController < ApplicationController
 		before_filter :authenticate_user!, except: [:index]
+		add_breadcrumb "words", :words_path
 	def index
-		@words = Word.find params[:word_id]
-		@definitions = @words.definitions.all
+		add_breadcrumb "definitions", word_definitions_path
+
+		@word = Word.find params[:word_id]
+		@definitions = @word.definitions.all
 
 	end
 	def new
+		add_breadcrumb "new", new_word_definition_path
 		@word = Word.find params[:word_id]
 		@definition = @word.definitions.new
 	end

@@ -31,6 +31,7 @@ gem 'devise'
 gem 'pundit'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "breadcrumbs_on_rails"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
