@@ -1,9 +1,10 @@
 <h1> definitions</h1>
-
-<% @definitions.each do |definition| %>
 <ul>
+<% @definitions.each do |definition| %>
+
 <li><%= definition.text %></li>
 <%= link_to('edit definition', edit_word_definition_path(id:definition.id)) %>
-<%= link_to('delete definition', word_definition_path(id:definition.id)) %>
-</ul>
+<%= link_to('delete definition', word_definition_path(id:definition.id), :method => :delete) %>
+
 <% end %>
+</ul>

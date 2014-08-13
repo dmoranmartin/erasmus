@@ -1,4 +1,4 @@
 class Word < ActiveRecord::Base
-validates :name, :locale, presence: true
+validates :name, :language, presence: true
 has_many :definitions
 end

@@ -46,7 +46,7 @@ class WordsController < ApplicationController
 	private
 
 	def entry_params
-		params.require(:word).permit(:name, :locale)
+		params.require(:word).permit(:name, :language)
 	end
 
 end
