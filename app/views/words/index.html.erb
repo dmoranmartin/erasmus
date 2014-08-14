@@ -1,3 +1,5 @@
+
+
 <%= render_breadcrumbs %>
 <h1> WORDS</h1>
 
@@ -10,7 +12,7 @@
 <ul>
 <% @words.sort{|a,b| b <=> a }.each do |word| %>
 
-<li><%= link_to( word.name , word_definitions_path(word.id)) %></li>
+<li><%= link_to( word.name, word_definitions_path(word.id)) %></li>
 <%= link_to('edit word', edit_word_path(word.id)) %>
 <%= link_to('delete word',word_path(word.id), :method => :delete) %>
 
@@ -19,23 +21,10 @@
 </ul>
 <div id = 'alph'>  </div>
 
-<script type="text/javascript">
-	var findLetter = function(letter)  {
-		var breakfunction = function(word) {
-			lettersprearray = word.split;
-			lettersarray = lettersprearray.to_a;
-			var firstletter = lettersarray[0];
-			if (firstletter == letter){
-				$("#alph").html(word);
-			}
-		}
 
-	};
 
-	$(".letter").on('click', function(event){
 
-			findLetter(event.currentTarget.innerText);
-});
-</script>
+
+
 
 

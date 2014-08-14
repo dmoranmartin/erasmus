@@ -4,10 +4,9 @@ class WordsController < ApplicationController
   
 	def index
 		@words = Word.all
-		@words_name = []
-		@words.each do |word|
-			@words_name.push(word.name)
-		end
+		@words_name =[]
+		@words_name = @words.map{|x| x.name}
+		gon.words = @words_name
 		
 		@alphabet = ("a".."z").to_a
 
