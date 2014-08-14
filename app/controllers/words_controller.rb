@@ -7,7 +7,9 @@ class WordsController < ApplicationController
 		@words_name =[]
 		@words_name = @words.map{|x| x.name}
 		gon.words = @words_name
-		
+		@words_id =[]
+		@words_id = @words.map{|x| x.id}
+		gon.words_id= @words_id
 		@alphabet = ("a".."z").to_a
 
 
