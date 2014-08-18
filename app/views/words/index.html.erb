@@ -1,25 +1,26 @@
 
 
 <%= render_breadcrumbs %>
-<h1> WORDS</h1>
+<h1> TÉRMINOS</h1>
 
 <% @alphabet.each do |letter|  %>
 	<button class = 'letter'> <%= letter %></button>
 
 <% end %>
-
+<%= button_to('Crear Palabra',new_word_path, :method => :get) %>
 
 <ul>
-<% @words.sort{|a,b| b <=> a }.each do |word| %>
+<% @words.each do |word| %>
 
 <li><%= link_to( word.name, word_definitions_path(word.id)) %></li>
-<%= link_to('edit word', edit_word_path(word.id)) %>
-<%= link_to('delete word',word_path(word.id), :method => :delete) %>
+<%= link_to('editar término', edit_word_path(word.id)) %>
+<%= link_to('eliminar término',word_path(word.id), :method => :delete) %>
 
 
 <% end %>
 </ul>
 <div id = 'alph'>  </div>
+
 
 
 

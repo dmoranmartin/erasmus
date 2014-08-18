@@ -3,12 +3,10 @@ class WordsController < ApplicationController
 		  add_breadcrumb "home", :root_path
   
 	def index
-		@words = Word.all
-		@words_name =[]
-		@words_name = @words.map{|x| x.name}
+		@words = Word.order(name: :asc)
+		@words_name = @words.map(&:name)
 		gon.words = @words_name
-		@words_id =[]
-		@words_id = @words.map{|x| x.id}
+		@words_id = @words.map(&:id)
 		gon.words_id= @words_id
 		@alphabet = ("a".."z").to_a
 
@@ -17,7 +15,8 @@ class WordsController < ApplicationController
 	end
 	def new
 		@word = Word.new
-		add_breadcrumb "new", new_word_path
+		 @word.definitions << Definition.new
+		 add_breadcrumb "new", new_word_path
 	end
 	def create
 		@word = Word.new entry_params
@@ -59,7 +58,7 @@ class WordsController < ApplicationController
 	private
 
 	def entry_params
-		params.require(:word).permit(:name, :language)
+		params.require(:word).permit(:name, :language, definitions_attributes: [:origin, :text, :video, :category, :example])
 	end
 
 end
